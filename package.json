@@ -1,6 +1,6 @@
 {
   "name": "detect-gpu-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect and rate GPU based on its GFXBench scores",
   "author": "Soft8Soft",
   "license": "MIT",
