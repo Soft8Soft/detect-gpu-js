@@ -26,7 +26,7 @@ export const getGPUTier = async ({
             override = {},
             glContext,
             failIfMajorPerformanceCaveat = false,
-            benchmarksURL = `https://unpkg.com/detect-gpu@${version}/dist/benchmarks`,
+            benchmarksURL = `https://unpkg.com/detect-gpu-js@${version}/dist/benchmarks`,
         } = {}) => {
 
     const queryCache = {};
@@ -48,9 +48,9 @@ export const getGPUTier = async ({
 
                 // Remove version tag and check version is supported
                 const version = parseInt(data.shift().split('.')[0], 10);
-                if (version < 4) {
+                if (version < 1) {
                     throw new OutdatedBenchmarksError(
-                        'Detect GPU benchmark data is out of date. Please update to version 4x'
+                        'Detect GPU benchmark data is out of date. Please update to version 1x'
                     );
                 }
                 return data;
