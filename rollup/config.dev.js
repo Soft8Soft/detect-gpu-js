@@ -5,7 +5,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import livereload from 'rollup-plugin-livereload';
 import serve from 'rollup-plugin-serve';
-import sourcemaps from 'rollup-plugin-sourcemaps';
 
 export default {
     input: 'example/index.js',
@@ -33,6 +32,5 @@ export default {
             targets: [{ dest: 'example/build', src: 'benchmarks' }],
         }),
         json(),
-        sourcemaps(),
     ],
 };

@@ -64,8 +64,7 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^2.0.2",
-    "rollup-plugin-sourcemaps": "^0.6.3"
+    "rollup-plugin-serve": "^2.0.2"
   },
   "jest": {
     "testEnvironmentOptions": {

@@ -4,7 +4,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import filesize from 'rollup-plugin-filesize';
-import sourcemaps from 'rollup-plugin-sourcemaps';
 import terser from '@rollup/plugin-terser';
 
 const formats = ['esm', 'umd'];
@@ -30,6 +29,5 @@ export default formats.map((format) => ({
             targets: [{ dest: 'dist', src: 'benchmarks' }],
         }),
         json(),
-        sourcemaps(),
     ],
 }));
