@@ -73,7 +73,6 @@ export function getLevenshteinDistance(left, right) {
         for (i = 0; i < leftLength; i++) {
             temp2 = bCharCode === charCodeCache[i] ? temp : temp + 1;
             temp = array[i];
-            // eslint-disable-next-line no-multi-assign
             result = array[i] =
                 temp > result ?
                 temp2 > result ?
@@ -93,7 +92,7 @@ export function tokenizeForLevenshteinDistance(str) {
         str
         .split(/[.,()\[\]/\s]/g)
         .sort()
-        // Remove duplicates
+        // remove duplicates
         .filter((item, pos, arr) => pos === 0 || item !== arr[pos - 1])
         .join(' ')
     );

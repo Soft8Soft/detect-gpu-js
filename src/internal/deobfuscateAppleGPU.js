@@ -1,4 +1,3 @@
-// Vendor
 import {
     GL_ARRAY_BUFFER,
     GL_COLOR_BUFFER_BIT,
@@ -11,14 +10,13 @@ import {
     GL_VERTEX_SHADER,
 } from 'webgl-constants';
 
-// Internal
 import { deviceInfo } from './deviceInfo';
 
-const debug = false ? console.warn : undefined;
+const debug = false ? console.warn : () => {};
 
 export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
     if (!isMobileTier) {
-        debug?.('Safari 14+ obfuscates its GPU type and version, using fallback');
+        debug('Safari 14+ obfuscates its GPU type and version, using fallback');
         return [renderer];
     }
     const pixelId = calculateMagicPixelId(gl);
@@ -73,11 +71,7 @@ export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
         }
     }
     const renderers = chipsets.map(([gpu]) => `apple ${gpu} gpu`);
-    debug?.(
-        `iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${JSON.stringify(
-      renderers
-    )}`
-    );
+    debug(`iOS 12.2+ obfuscates its GPU type and version, using closest matches: ${JSON.stringify(renderers)}`);
     return renderers;
 }
 

@@ -1,4 +1,4 @@
-const debug = false ? console.log : undefined;
+const debug = false ? console.log : () => {};
 
 export function cleanRenderer(renderer) {
     debug?.('cleanRenderer', { renderer });
@@ -20,7 +20,7 @@ export function cleanRenderer(renderer) {
         // `OpenGL 4.5.0` gets removed all together
         .replace(/(?:vulkan|opengl) \d+\.\d+(?:\.\d+)?(?: \((.*)\))?/, '$1');
 
-    debug?.('cleanRenderer - renderer cleaned to', { renderer });
+    debug('cleanRenderer - renderer cleaned to', { renderer });
 
     return renderer;
 }
