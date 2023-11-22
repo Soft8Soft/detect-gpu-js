@@ -1,8 +1,6 @@
-// Vendor
 import fs from 'fs';
 import puppeteer from 'puppeteer';
 
-// Application
 import { BLOCKLISTED_GPUS } from '../src/internal/blocklistedGPUS.js';
 import { cleanRenderer } from '../src/internal/cleanRenderer.js';
 import { getGPUVersion } from '../src/internal/getGPUVersion.js';
@@ -116,9 +114,7 @@ const TYPES = [
                     const data = [libraryMajorVersion, ...serializedModels];
                     await Promise.all(
                         [true, false].map(async (minified) => {
-                            const file = `./benchmarks${minified ? '-min' : ''}/${
-                isMobile ? 'm' : 'd'
-              }-${type}.json`;
+                            const file = `./benchmarks${minified ? '-min' : ''}/${ isMobile ? 'm' : 'd' }-${type}.json`;
                             const json = JSON.stringify(data, null, minified ? undefined : 2);
                             await fs.promises.writeFile(file, json);
                             if (!minified) {
@@ -128,7 +124,7 @@ const TYPES = [
                     );
                 };
 
-                // Output ipads seperately from other ios devices:
+                // output ipads seperately from other ios devices:
                 if (type === 'apple' && isMobile) {
                     await Promise.all([
                         outputFile(
