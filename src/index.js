@@ -22,6 +22,7 @@ export const getGPUTier = async ({
             glContext,
             failIfMajorPerformanceCaveat = false,
             benchmarksURL = `https://unpkg.com/detect-gpu-js@${version}/dist/benchmarks`,
+            hidpiScreenSize = true,
         } = {}) => {
 
     const queryCache = {};
@@ -128,9 +129,11 @@ export const getGPUTier = async ({
 
         let minDistance = Number.MAX_VALUE;
         let closest;
-        const { devicePixelRatio } = window;
 
-        const pixelCount = screenSize.width * devicePixelRatio * screenSize.height * devicePixelRatio;
+        let pixelCount = screenSize.width * screenSize.height;
+
+        if (hidpiScreenSize)
+            pixelCount = pixelCount * window.devicePixelRatio * window.devicePixelRatio;
 
         for (const match of fpsesByPixelCount) {
             const [width, height] = match;

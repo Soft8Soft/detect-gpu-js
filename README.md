@@ -82,6 +82,12 @@ getGPUTier({
      */
     desktopTiers,
     /**
+     * Use HiDPI (Retina) resolution to find benchmark results.
+     *
+     * @defaultValue true
+     */
+    hidpiScreenSize,
+    /**
      * Optionally override specific parameters. Used mainly for testing.
      */
     override: {
@@ -97,9 +103,9 @@ getGPUTier({
         /**
          * Override device screen size.
          */
-        screenSize: { width, height };
+        screenSize: { width, height },
         /**
-         * Override how benchmark data is loaded
+         * Override how benchmark data is loaded.
          */
         loadBenchmarks
     };
