@@ -1,4 +1,6 @@
 import { version } from '../package.json';
+// optional, when ignored in rollup config, becomes {}
+import benchmarkFiles from './internal/benchmarks.json';
 
 import { BLOCKLISTED_GPUS } from './internal/blocklistedGPUS';
 import { cleanRenderer } from './internal/cleanRenderer';
@@ -23,6 +25,11 @@ export const getGPUTier = async ({
         } = {}) => {
 
     const queryCache = {};
+
+    // populate cache from bundle if there is somemething in it
+    for (const benchmarkFile in benchmarkFiles)
+        queryCache[benchmarkFile] = benchmarkFiles[benchmarkFile].slice(1); // strip version
+
     if (isSSR) {
         return {
             tier: 0,
@@ -32,22 +39,23 @@ export const getGPUTier = async ({
 
     const {
         isIpad = !!deviceInfo?.isIpad,
-            isMobile = !!deviceInfo?.isMobile,
-            screenSize = window.screen,
-            loadBenchmarks = async (file) => {
-                const data = await fetch(`${benchmarksURL}/${file}`).then((response) =>
-                    response.json()
-                );
+        isMobile = !!deviceInfo?.isMobile,
+        screenSize = window.screen,
+        loadBenchmarks = async (file) => {
 
-                // Remove version tag and check version is supported
-                const version = parseInt(data.shift().split('.')[0], 10);
-                if (version < 1) {
-                    throw new OutdatedBenchmarksError(
-                        'Detect GPU benchmark data is out of date. Please update to version 1x'
-                    );
-                }
-                return data;
-            },
+            const data = await fetch(`${benchmarksURL}/${file}`).then((response) =>
+                response.json()
+            );
+
+            // Remove version tag and check version is supported
+            const version = parseInt(data.shift().split('.')[0], 10);
+            if (version < 1) {
+                throw new OutdatedBenchmarksError(
+                    'Detect GPU benchmark data is out of date. Please update to version 1x'
+                );
+            }
+            return data;
+        },
     } = override;
 
     let { renderer } = override;
