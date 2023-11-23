@@ -1,10 +1,10 @@
 // Vendor
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import filesize from 'rollup-plugin-filesize';
 import terser from '@rollup/plugin-terser';
+import { babel } from '@rollup/plugin-babel';
 
 const formats = ['esm', 'umd'];
 
@@ -17,6 +17,10 @@ export default formats.map((format) => ({
         sourcemap: true,
     },
     plugins: [
+        babel({
+            presets: [['@babel/preset-env', { targets: "safari >= 11" }]],
+            babelHelpers: 'bundled',
+        }),
         terser({
             format: {
                 comments: false,
@@ -24,7 +28,6 @@ export default formats.map((format) => ({
         }),
         filesize(),
         resolve(),
-        commonjs(),
         copy({
             targets: [{ dest: 'dist', src: 'benchmarks' }],
         }),

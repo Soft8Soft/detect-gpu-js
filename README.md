@@ -54,59 +54,59 @@ getGPUTier({
      *
      * @default https://unpkg.com/detect-gpu-js@{version}/dist/benchmarks
      */
-    benchmarksURL?: string;
+    benchmarksURL,
     /**
      * Optionally pass in a WebGL context to avoid creating a temporary one
      * internally.
      */
-    glContext?: WebGLRenderingContext | WebGL2RenderingContext;
+    glContext,
     /**
      * Whether to fail if the system performance is low or if no hardware GPU is
      * available.
      *
      * @default false
      */
-    failIfMajorPerformanceCaveat?: boolean;
+    failIfMajorPerformanceCaveat,
     /**
      * Framerate per tier for mobile devices.
      *
      * @defaultValue [0, 15, 30, 60]
      */
-    mobileTiers?: number[];
+    mobileTiers,
     /**
      * Framerate per tier for desktop devices.
      *
      * @defaultValue [0, 15, 30, 60]
      */
-    desktopTiers?: number[];
+    desktopTiers,
     /**
      * Optionally override specific parameters. Used mainly for testing.
      */
-    override?: {
-        renderer?: string;
+    override: {
+        renderer,
         /**
          * Override whether device is an iPad.
          */
-        isIpad?: boolean;
+        isIpad,
         /**
          * Override whether device is a mobile device.
          */
-        isMobile?: boolean;
+        isMobile,
         /**
          * Override device screen size.
          */
-        screenSize?: { width: number; height: number };
+        screenSize: { width, height };
         /**
          * Override how benchmark data is loaded
          */
-        loadBenchmarks?: (file: string) => Promise<ModelEntry[]>;
+        loadBenchmarks
     };
 })
 ```
 
 ## Support
 
-Special care has been taken to make sure all browsers that support `WebGL` are also supported by `detect-gpu-js` including `IE 11`.
+Requires JavaScript modules feature to be supported in the browser, e.g. works on Chrome 61+, Firefox 60+, Safari 11+ (most versions dated back to 2017).
 
 ## Changelog
 
