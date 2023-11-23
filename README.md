@@ -106,7 +106,7 @@ getGPUTier({
 
 ## Support
 
-Requires JavaScript modules feature to be supported in the browser, e.g. works on Chrome 61+, Firefox 60+, Safari 11+ (most versions dated back to 2017).
+Requires JavaScript modules to be supported, e.g. works on Chrome 61+, Firefox 60+, Safari 11+ (most versions dated back to 2017).
 
 ## Changelog
 
