@@ -1,7 +1,6 @@
 // Vendor
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import livereload from 'rollup-plugin-livereload';
 import serve from 'rollup-plugin-serve';
@@ -20,7 +19,6 @@ export default {
             watch: '.',
         }),
         resolve(),
-        commonjs(),
         serve({
             contentBase: ['./example'],
             host: 'localhost',
