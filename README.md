@@ -14,13 +14,15 @@ This project is a maintained fork of [detect-gpu](https://github.com/pmndrs/dete
 
 ## Installation
 
-By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself download the required benchmarking data from [benchmarks.tar.gz](https://github.com/soft8soft/detect-gpu-js/raw/master/benchmarks.tar.gz) and serve it from a public directory.
-
-Make sure you have [Node.js](http://nodejs.org/) installed.
+Make sure you have [Node.js](http://nodejs.org/) installed, then:
 
 ```sh
  $ npm install detect-gpu-js
 ```
+
+By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself, download the required benchmarking data from [benchmarks.tar.gz](https://github.com/soft8soft/detect-gpu-js/raw/master/benchmarks.tar.gz) and serve it from a public directory.
+
+Alternatively, there is the `detect-gpu.bundle.js` build that comes with benchmark data embeeded. This however requires 300KB+ more data downloaded over the network.
 
 ## Usage
 
@@ -114,6 +116,6 @@ Requires JavaScript modules to be supported, e.g. works on Chrome 61+, Firefox 6
 
 ## Licence
 
-My work is released under the [MIT license](https://raw.githubusercontent.com/soft8soft/detect-gpu-js/master/LICENSE).
+The project is released under the [MIT license](https://raw.githubusercontent.com/soft8soft/detect-gpu-js/master/LICENSE).
 
 `detect-gpu-js` uses both mobile and desktop benchmarking scores from [https://gfxbench.com](https://gfxbench.com).
