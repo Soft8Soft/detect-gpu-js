@@ -170,7 +170,8 @@ export const getGPUTier = async ({
             return toResult(0, 'WEBGL_UNSUPPORTED');
         }
 
-        const debugRendererInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        // NOTE: fixes console warning in Firefox
+        const debugRendererInfo = deviceInfo?.isFirefox ? null : gl.getExtension('WEBGL_debug_renderer_info');
 
         if (debugRendererInfo) {
             renderer = gl.getParameter(debugRendererInfo.UNMASKED_RENDERER_WEBGL);
