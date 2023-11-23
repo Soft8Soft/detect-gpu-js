@@ -22,7 +22,7 @@ Make sure you have [Node.js](http://nodejs.org/) installed, then:
 
 By default we use the [UNPKG](https://unpkg.com) CDN to host the benchmark data. If you would like to serve the benchmark data yourself, download the required benchmarking data from [benchmarks.tar.gz](https://github.com/soft8soft/detect-gpu-js/raw/master/benchmarks.tar.gz) and serve it from a public directory.
 
-Alternatively, there is the `detect-gpu.bundle.js` build that comes with benchmark data embeeded. This however requires 300KB+ more data downloaded over the network.
+Alternatively, there is the `detect-gpu.bundle.js` build that comes with benchmark data embedded. This however requires 300KB+ more data downloaded over the network.
 
 ## Usage
 
