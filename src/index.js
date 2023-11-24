@@ -12,8 +12,7 @@ import { getLevenshteinDistance, tokenizeForLevenshteinDistance } from './intern
 import { getWebGLContext } from './internal/getWebGLContext';
 import { isSSR } from './internal/ssr';
 import { isDefined } from './internal/util';
-
-let debug = false ? console.log : () => {};
+import { debug } from './internal/debug';
 
 export const getGPUTier = async ({
             mobileTiers = [0, 15, 30, 60],
@@ -78,7 +77,7 @@ export const getGPUTier = async ({
             return;
         }
 
-        debug('queryBenchmarks - found type:', { type });
+        debug('queryBenchmarks - found type:', type);
 
         const benchmarkFile = `${isMobile ? 'm' : 'd'}-${type}${ isIpad ? '-ipad' : '' }.json`;
 
@@ -91,7 +90,7 @@ export const getGPUTier = async ({
             if (error instanceof OutdatedBenchmarksError) {
                 throw error;
             }
-            debug("queryBenchmarks - couldn't load benchmark:", { error });
+            debug("queryBenchmarks - couldn't load benchmark:", error);
             return;
         }
 
@@ -125,7 +124,7 @@ export const getGPUTier = async ({
             ])
             .sort(([, a], [, b]) => a - b)[0][0] : matched[0];
 
-        debug(`${renderer} matched closest to ${gpu} with the following screen sizes`, JSON.stringify(fpsesByPixelCount));
+        debug(`${renderer} matched closest to ${gpu} with the following screen sizes:`, JSON.stringify(fpsesByPixelCount));
 
         let minDistance = Number.MAX_VALUE;
         let closest;

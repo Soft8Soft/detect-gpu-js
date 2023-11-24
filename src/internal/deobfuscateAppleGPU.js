@@ -11,8 +11,7 @@ import {
 } from 'webgl-constants';
 
 import { deviceInfo } from './deviceInfo';
-
-const debug = false ? console.warn : () => {};
+import { debug } from './debug';
 
 export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
     if (!isMobileTier) {
