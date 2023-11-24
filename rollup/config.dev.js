@@ -20,7 +20,7 @@ export default {
         resolve(),
         serve({
             contentBase: ['./example'],
-            host: 'localhost',
+            host: '0.0.0.0',
             open: true,
             openPage: '/',
             port: 3003,

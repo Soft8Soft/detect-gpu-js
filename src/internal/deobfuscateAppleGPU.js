@@ -20,6 +20,8 @@ export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
         return [renderer];
     }
     const pixelId = calculateMagicPixelId(gl);
+    debug('Apple device pixel ID:', pixelId)
+
     const codeA = '801621810';
     const codeB = '8016218135';
     const codeC = '80162181161';
