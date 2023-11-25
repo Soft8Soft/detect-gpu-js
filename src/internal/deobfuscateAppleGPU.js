@@ -24,6 +24,7 @@ export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
     const codeA = '801621810';
     const codeB = '8016218135';
     const codeC = '80162181161';
+    const codeFB = '80162181255';
 
     // All chipsets that support at least iOS 12:
     const possibleChipsets = deviceInfo?.isIpad ?
@@ -40,10 +41,12 @@ export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
             ['a10', codeB, 15], // ipad 7th gen / ipad 6th gen
             ['a10x', codeB, 15], // pro 10.5 2017 / pro 12.9 2nd gen, 2017
             ['a12', codeA, 15], // ipad 8th gen / ipad air 3rd gen / ipad mini 5th gen
-            ['a12x', codeA, 15], // pro 11 1st gen / pro 12.9 3rd gen
-            ['a12z', codeA, 15], // pro 12.9 4th gen / pro 11 2nd gen
+            ['a12x', codeA, 15], // ipad pro 11 3st gen / ipad pro 12.9 3rd gen
+            ['a12z', codeA, 15], // ipad pro 11 4nd gen / ipad pro 12.9 4th gen
             ['a14', codeA, 15], // ipad air 4th gen
-            ['m1', codeA, 15], // ipad pro 11 2nd gen / 12.9 5th gen
+            ['a15', codeA, 15], // ipad mini 6th gen / ipad 10th gen
+            ['m1', codeA, 15], // ipad pro 11 5nd gen / ipad pro 12.9 5th gen / ipad air 5th gen
+            ['m2', codeA, 15], // ipad pro 11 6nd gen / ipad pro 12.9 6th gen
         ] :
         [
             // ['a4', 7], // 4 / ipod touch 4th gen
@@ -57,12 +60,15 @@ export function deobfuscateAppleGPU(gl, renderer, isMobileTier) {
             ['a12', codeA, 15], // XS / XS Max / XR
             ['a13', codeA, 15], // 11 / 11 pro / 11 pro max / se 2nd gen
             ['a14', codeA, 15], // 12 / 12 mini / 12 pro / 12 pro max
+            ['a15', codeA, 15], // 13 / 13 mini / 13 pro / 13 pro max / se 3rd gen / 14 / 14 plus
+            ['a16', codeA, 15], // 14 pro / 14 pro max / 15 / 15 plus
+            ['a17', codeA, 15], // 15 pro / 15 pro max
         ];
     let chipsets;
 
     // In iOS 14.x Apple started normalizing the outcome of this hack,
     // we use this fact to limit the list to devices that support ios 14+
-    if (pixelId === '80162181255') {
+    if (pixelId === codeFB) {
         chipsets = possibleChipsets.filter(([, , iosVersion]) => iosVersion >= 14);
     } else {
         chipsets = possibleChipsets.filter(([, id]) => id === pixelId);
