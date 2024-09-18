@@ -35,13 +35,13 @@
       [
         2224,
         1668,
-        55,
+        1596,
         "apple ipad pro (10.5-inch)"
       ],
       [
         2732,
         2048,
-        48,
+        42,
         "apple ipad pro (12.9-inch, 2nd gen)"
       ]
     ]
@@ -55,19 +55,19 @@
       [
         2048,
         1536,
-        60,
+        59,
         "apple ipad mini (2019)"
       ],
       [
         2160,
         1620,
-        58,
+        57,
         "apple ipad 8th gen (wifi+cellular)"
       ],
       [
         2224,
         1668,
-        58,
+        59,
         "apple ipad air (2019)"
       ]
     ]
@@ -275,6 +275,12 @@
     0,
     [
       [
+        2360,
+        1640,
+        60,
+        "apple ipad air 6th gen (m2)"
+      ],
+      [
         2388,
         1668,
         120,
@@ -283,8 +289,28 @@
       [
         2732,
         2048,
+        60,
+        "apple ipad air 13-inch (m2)"
+      ]
+    ]
+  ],
+  [
+    "apple m4 gpu",
+    "4",
+    "apple gpu m4",
+    0,
+    [
+      [
+        2420,
+        1668,
         120,
-        "apple ipad pro 12.9-inch (6th generation)"
+        "apple ipad pro 11-inch (m4)"
+      ],
+      [
+        2752,
+        2064,
+        121,
+        "apple ipad pro 12.9 inch 7th gen"
       ]
     ]
   ]
