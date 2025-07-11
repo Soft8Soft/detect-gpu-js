@@ -15,7 +15,7 @@
       [
         2160,
         1620,
-        38,
+        36,
         "apple ipad (10.2-inch) (7th generation)"
       ]
     ]
@@ -35,13 +35,13 @@
       [
         2224,
         1668,
-        1596,
+        46,
         "apple ipad pro (10.5-inch)"
       ],
       [
         2732,
         2048,
-        42,
+        44,
         "apple ipad pro (12.9-inch, 2nd gen)"
       ]
     ]
@@ -55,19 +55,19 @@
       [
         2048,
         1536,
-        59,
+        60,
         "apple ipad mini (2019)"
       ],
       [
         2160,
         1620,
-        57,
+        58,
         "apple ipad 8th gen (wifi+cellular)"
       ],
       [
         2224,
         1668,
-        59,
+        58,
         "apple ipad air (2019)"
       ]
     ]
@@ -101,8 +101,8 @@
       [
         2388,
         1668,
-        115,
-        "apple ipad pro (11-inch) (2nd generation)"
+        113,
+        "apple ipad pro (11-inch) (2rd generation)"
       ],
       [
         2732,
@@ -121,7 +121,7 @@
       [
         2160,
         1620,
-        60,
+        59,
         "apple ipad 9th gen"
       ]
     ]
@@ -163,6 +163,20 @@
         1668,
         60,
         "apple ipad mini (6th gen)"
+      ]
+    ]
+  ],
+  [
+    "apple a16 gpu",
+    "16",
+    "a16 apple gpu",
+    0,
+    [
+      [
+        2360,
+        1640,
+        60,
+        "apple ipad 11th gen (wifi)"
       ]
     ]
   ],
@@ -257,7 +271,7 @@
       [
         2388,
         1668,
-        119,
+        112,
         "apple ipad pro (11-inch) (3rd generation)"
       ],
       [
@@ -287,10 +301,30 @@
         "apple ipad pro 11 inch (4th gen)"
       ],
       [
+        2730,
+        2048,
+        120,
+        "apple ipad pro 12.9-inch (6th generation)"
+      ],
+      [
         2732,
         2048,
         60,
         "apple ipad air 13-inch (m2)"
+      ]
+    ]
+  ],
+  [
+    "apple m3 gpu",
+    "3",
+    "apple gpu m3",
+    0,
+    [
+      [
+        2360,
+        1640,
+        60,
+        "apple ipad air 11-inch 7th gen (wifi)"
       ]
     ]
   ],

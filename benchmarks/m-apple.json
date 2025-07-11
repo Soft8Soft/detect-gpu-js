@@ -61,7 +61,7 @@
       [
         1792,
         828,
-        60,
+        65,
         "apple iphone xr"
       ],
       [
@@ -87,25 +87,25 @@
       [
         1334,
         750,
-        75,
+        60,
         "apple iphone se (2nd gen)"
       ],
       [
         1792,
         828,
-        60,
+        66,
         "apple iphone 11"
       ],
       [
         2436,
         1125,
-        61,
+        36,
         "apple iphone 11 pro"
       ],
       [
         2688,
         1242,
-        59,
+        70,
         "apple iphone 11 pro max"
       ]
     ]
@@ -145,13 +145,13 @@
       [
         1334,
         750,
-        60,
+        118,
         "apple iphone se (2022)"
       ],
       [
         2338,
         1080,
-        62,
+        60,
         "apple iphone 13 mini"
       ],
       [
@@ -209,11 +209,37 @@
     ]
   ],
   [
+    "apple a18 gpu",
+    "18",
+    "a18 apple gpu",
+    0,
+    [
+      [
+        2532,
+        1170,
+        60,
+        "apple iphone 16 (iphone17,5)"
+      ],
+      [
+        2533,
+        1170,
+        60,
+        "apple iphone 16 (iphone17,5)"
+      ]
+    ]
+  ],
+  [
     "apple a18 pro gpu",
     "18",
     "a18 apple gpu pro",
     0,
     [
+      [
+        2532,
+        1170,
+        60,
+        "apple iphone 16 (iphone17,1)"
+      ],
       [
         2778,
         1284,
