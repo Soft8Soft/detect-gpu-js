@@ -10,7 +10,7 @@ This project was initially based on [detect-gpu](https://github.com/pmndrs/detec
 
 ## Installation
 
-Just place and link detect-gpu.js in your project HTML if you're using ES6 modules, or detect-gpu-compat.js if you're using namespaced modules.
+Just copy and link ``detect-gpu.js`` in your project HTML if you're using ES6 modules, or ``detect-gpu-compat.js`` if you're using namespaced modules.
 
 ## Usage
 
