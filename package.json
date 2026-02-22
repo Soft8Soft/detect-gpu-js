@@ -1,85 +1,28 @@
 {
   "name": "detect-gpu-js",
-  "version": "1.0.8",
-  "description": "Detect and rate GPU based on its GFXBench scores",
-  "author": "Soft8Soft",
-  "license": "MIT",
-  "main": "dist/detect-gpu.umd.js",
-  "module": "dist/detect-gpu.esm.js",
+  "version": "2.0.0",
+  "description": "Detect and rate GPU performance as 'GOOD' or 'BAD'.",
+  "main": "detect-gpu.js",
   "type": "module",
-  "homepage": "https://github.com/Soft8Soft/detect-gpu-js",
-  "bugs": {
-    "url": "https://github.com/Soft8Soft/detect-gpu-js/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build-compat.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Soft8Soft/detect-gpu-js"
+    "url": "git+https://github.com/Soft8Soft/detect-gpu-js.git"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "gpu",
     "detect",
     "webgl",
     "webgl2",
-    "verge3d",
-    "three.js",
-    "babylonjs",
-    "three",
-    "babylon",
-    "3d",
     "javascript"
   ],
-  "scripts": {
-    "start": "rollup -c rollup/config.lib.js -w",
-    "lint": "eslint \"src/**/*.js\" \"test/**/*.js\" \"test/**/*.test.js\" \"rollup/**/*.js\" \"scripts/**/*.js\" \"scripts/**/*.js\" --fix --cache --cache-location ~/.eslintcache/eslintcache",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose=false",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
-    "test:debug": "node --experimental-vm-modules --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --watch",
-    "prebuild": "rimraf dist",
-    "build": "rollup -c rollup/config.lib.js",
-    "example": "rollup -w -c rollup/config.dev.js",
-    "parse-analytics": "node ./scripts/analytics_parser.js",
-    "update-benchmarks": "rimraf benchmarks && mkdir -p benchmarks && mkdir -p benchmarks-min && node ./scripts/update_benchmarks.js && tar -czvf benchmarks.tar.gz benchmarks-min/*.json && rm -rf benchmarks-min && node ./scripts/combine_benchmarks.js"
+  "author": "Soft8Soft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Soft8Soft/detect-gpu-js/issues"
   },
-  "dependencies": {
-    "webgl-constants": "^1.1.1"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.23.3",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@types/jest": "^29.5.9",
-    "csvtojson": "^2.0.10",
-    "eslint": "^8.54.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "moment": "^2.29.4",
-    "puppeteer": "^21.5.2",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.5.0",
-    "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-filesize": "^10.0.0",
-    "rollup-plugin-ignore": "^1.0.10",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^2.0.2"
-  },
-  "jest": {
-    "testEnvironmentOptions": {
-      "url": "http://localhost"
-    },
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "testMatch": [
-      "**/test/**/*.test.js"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/test/data.js"
-    ]
-  }
+  "homepage": "https://github.com/Soft8Soft/detect-gpu-js#readme"
 }
