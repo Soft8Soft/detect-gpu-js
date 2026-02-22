@@ -10,7 +10,7 @@ This project was initially based on [detect-gpu](https://github.com/pmndrs/detec
 
 ## Installation
 
-Just place and link detect-gpu.js in your project HTML.
+Just place and link detect-gpu.js in your project HTML if you're using ES6 modules, or detect-gpu-compat.js if you're using namespaced modules.
 
 ## Usage
 
@@ -20,9 +20,9 @@ import { getGPUTier } from 'detect-gpu';
 (async () => {
     const gpuTier = await getGPUTier();
   
-    // Output is one of:
-    // 'GOOD'
-    // 'BAD'
+    // output is one of:
+    // { tier: 'GOOD', reason: '...' }
+    // { tier: 'BAD', reason: '...' }
 })();
 ```
 
@@ -31,10 +31,6 @@ import { getGPUTier } from 'detect-gpu';
 ```js
 getGPUTier(undecided='GOOD')
 ```
-
-## Support
-
-Requires JavaScript modules to be supported, e.g. works on Chrome 61+, Firefox 60+, Safari 11+ (most versions dated back to 2017).
 
 ## Licence
 
