@@ -71,6 +71,9 @@ async function checkWebGPUSupport() {
 
 async function getGPUTier(undecided='BAD') {
     const webgl1 = checkWebGL1();
+    if (!webgl1)
+        return { tier: 'BAD', reason: 'Not supporting WebGL' };
+
     const webgl2 = checkWebGL2();
 
     if (webgl1 && !webgl2)
