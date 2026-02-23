@@ -1,10 +1,8 @@
 (function (global) {
 const DetectGPU = global.DetectGPU || (global.DetectGPU = {});
 
-const DEBUG = false;
-
-function printDebug(msg) {
-    if (DEBUG)
+function printDebug(msg, doPrint) {
+    if (doPrint)
         console.log(msg);
 }
 
@@ -69,7 +67,17 @@ async function checkWebGPUSupport() {
     }
 };
 
-async function getGPUTier(undecided='BAD') {
+function checkSafari() {
+    return navigator.vendor && navigator.vendor.includes('Apple') &&
+        !navigator.userAgent.includes('CriOS') && !navigator.userAgent.includes('FxiOS');
+}
+
+function safariMajorVersion() {
+    const match = navigator.userAgent.match(/Version\/(\d+)/);
+    return match ? match[1] : 0;
+}
+
+async function getGPUTier(undecided='BAD', printDebugInfo=false) {
     const webgl1 = checkWebGL1();
     if (!webgl1)
         return { tier: 'BAD', reason: 'Not supporting WebGL' };
@@ -85,9 +93,9 @@ async function getGPUTier(undecided='BAD') {
 
     // https://fingerprint-scan.com/webgl_renderers/
 
-    printDebug(vendor);
-    printDebug(model);
-    printDebug(userAgent);
+    printDebug(vendor, printDebugInfo);
+    printDebug(model, printDebugInfo);
+    printDebug(userAgent, printDebugInfo);
 
     if (/(SwiftShader|Basic Render|llvmpipe)/i.test(model))
         return { tier: 'BAD', reason: 'Software renderer' };
@@ -124,9 +132,16 @@ async function getGPUTier(undecided='BAD') {
             return { tier: 'BAD', reason: 'Old or low-performance Intel GPU' };
     }
 
-    // TODO: exclude older devices
-    if (/Apple/i.test(model))
-        return { tier: 'GOOD', reason: 'Apple GPU' };
+    if (/Apple/i.test(model)) {
+        if (checkSafari()) {
+            const version = safariMajorVersion();
+            printDebug('Safari major version: ' + version, printDebugInfo);
+            // before iPhone 8 (or really old macOS version)
+            if (version < 16)
+                return { tier: 'BAD', reason: 'Old or non-updated Apple device' };
+        }
+        return { tier: 'GOOD', reason: 'Apple device' };
+    }
 
     // TODO: exclude older devices
     if (/Adreno/i.test(model))
@@ -137,11 +152,23 @@ async function getGPUTier(undecided='BAD') {
     if (/Xclipse/i.test(model))
         return { tier: 'GOOD', reason: 'Samsung Xclipse GPU' };
 
-    // e.g. Samsung Galaxy A15/A16/A06 5G
-    if (/Mali/i.test(model) && (/Mali-G57/i.test(model) || /Mali-G68/i.test(model)))
-        return { tier: 'GOOD', reason: 'Decent Mali GPU' };
+    // NOTE: looks like ARM Immortalis GPUs are reported as Mali
+    if (/Mali/i.test(model)) {
+        // e.g. Samsung Galaxy A15/A16/A06 5G
+        if (/(Mali-G57|Mali-G68)/i.test(model))
+            return { tier: 'GOOD', reason: 'Decent Mali GPU' };
 
-    // TODO: check Mali-based flagships
+        // e.g. Google Pixel 7/Pixel Tablet (Mali-G710), Pixel 8/9 (Mali-G715)
+        // various high-end Oppo/Xiaomi/Realme/Redmi/Vivo devices
+        else if (/Mali-G7\d\d/i.test(model))
+            return { tier: 'GOOD', reason: 'Good Mali GPU' };
+    }
+
+    if (/PowerVR/i.test(model)) {
+        // e.g. Google Pixel 10
+        if (/DXT-/i.test(model))
+            return { tier: 'GOOD', reason: 'Good PowerVR GPU' };
+    }
 
     if (await checkWebGPUSupport())
         return { tier: 'GOOD', reason: 'Supporting WebGPU' };
