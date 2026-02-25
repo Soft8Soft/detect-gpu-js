@@ -4,7 +4,7 @@ Rate GPUs based on their 3D rendering performance allowing the developer to prov
 
 This project was initially based on [detect-gpu](https://github.com/pmndrs/detect-gpu) code rewritten in JavaScript, but now it uses completely different approach to GPU detection.
 
-Older library used performance profile data taken from gfxbench.com (now defunct). The new version uses a set of evaluation snippets to classify GPU as "good" or "bad" one.
+Older library used performance profile data taken from gfxbench.com (now defunct). The new version uses a set of evaluation snippets to classify GPUs as "good" or "bad".
 
 Examples of "good" GPUs:
 
