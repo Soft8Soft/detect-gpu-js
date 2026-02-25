@@ -4,11 +4,28 @@ Rate GPUs based on their 3D rendering performance allowing the developer to prov
 
 This project was initially based on [detect-gpu](https://github.com/pmndrs/detect-gpu) code rewritten in JavaScript, but now it uses completely different approach to GPU detection.
 
+Older library used performance profile data taken from gfxbench.com (now defunct). The new version uses a set of evaluation snippets to classify GPU as "good" or "bad" one.
+
+Examples of "good" GPUs:
+
+* NVIDIA/AMD devices
+* iPhone 8+
+* Apple Silicon desktops/laptops (M1-M4)
+* Adreno phones/tablets
+* Intel Xe/Arc integrated GPUs
+
+Examples of "bad" GPUs:
+
+* Outdated Apple hardware
+* Intel HD/UHD crap
+* Devices that can't handle WebGL 2.0 API
+* Software renderers: llvmpipe, swiftshader
+
 ## Demo
 
 [Live demo](https://soft8soft.github.io/detect-gpu-js/)
 
-[WebGLReport with GPU detection](https://v3d.net/w)
+[WebGLReport with performance evaluation](https://v3d.net/w)
 
 ## Installation
 
