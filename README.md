@@ -8,9 +8,11 @@ This project was initially based on [detect-gpu](https://github.com/pmndrs/detec
 
 [Live demo](https://soft8soft.github.io/detect-gpu-js/)
 
+[WebGLReport with GPU detection](https://v3d.net/w)
+
 ## Installation
 
-Just copy and link ``detect-gpu.js`` in your project HTML if you're using ES6 modules, or ``detect-gpu-compat.js`` if you're using namespaced modules.
+Just copy and link ``detect-gpu.js`` in your project HTML if you're using ES6 modules, or ``detect-gpu-compat.js`` if you're using namespaced (IIFE) modules.
 
 ## Usage
 
@@ -29,8 +31,11 @@ import { getGPUTier } from 'detect-gpu';
 ## API
 
 ```js
-getGPUTier(undecided='GOOD')
+getGPUTier(undecided='BAD', printDebugInfo=false)
 ```
+
+``undecided`` param is used to return GPU tier when the system can't be evaluated reliably 
+``printDebugInfo`` enables printing additional debugging info in the browser console
 
 ## Licence
 
