@@ -52,6 +52,7 @@ getGPUTier(undecided='BAD', printDebugInfo=false)
 ```
 
 ``undecided`` param is used to return GPU tier when the system can't be evaluated reliably 
+
 ``printDebugInfo`` enables printing additional debugging info in the browser console
 
 ## Licence
