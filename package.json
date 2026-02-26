@@ -1,6 +1,6 @@
 {
   "name": "detect-gpu-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Detect and rate GPU performance as 'GOOD' or 'BAD'.",
   "main": "detect-gpu.js",
   "type": "module",

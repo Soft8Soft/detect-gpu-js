@@ -2,7 +2,7 @@
 
 Rate GPUs based on their 3D rendering performance allowing the developer to provide sensible default settings for graphically intensive applications. Think of it like a user-agent detection for the GPU but more powerful.
 
-This project was initially based on [detect-gpu](https://github.com/pmndrs/detect-gpu) code rewritten in JavaScript, but now it uses completely different approach to GPU detection.
+This project was initially based on [detect-gpu](https://github.com/pmndrs/detect-gpu) code rewritten in JavaScript, but now it uses an entirely different approach to GPU detection.
 
 Older library used performance profile data taken from gfxbench.com (now defunct). The new version uses a set of evaluation snippets to classify GPUs as "good" or "bad".
 
@@ -20,6 +20,8 @@ Examples of "bad" GPUs:
 * Intel HD/UHD crap
 * Devices that can't handle WebGL 2.0 API
 * Software renderers: llvmpipe, swiftshader
+
+This classification is based on how well a device can render [Verge3D-based content](https://www.soft8soft.com/gallery/), but should be relevant for other engines or vanilla WebGL/WebGPU apps.
 
 ## Demo
 
@@ -51,7 +53,7 @@ import { getGPUTier } from 'detect-gpu';
 getGPUTier(undecided='BAD', printDebugInfo=false)
 ```
 
-``undecided`` param is used to return GPU tier when the system can't be evaluated reliably 
+``undecided`` param is used to return GPU tier when the system can't be evaluated reliably (which is rare)
 
 ``printDebugInfo`` enables printing additional debugging info in the browser console
 
