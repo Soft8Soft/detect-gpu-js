@@ -155,6 +155,10 @@ async function getGPUTier(undecided='BAD', printDebugInfo=false) {
         if (/(Mali-G57|Mali-G68)/i.test(model))
             return { tier: 'GOOD', reason: 'Decent Mali GPU' };
 
+        // e.g. Google Pixel 6, Huawei P50 (Kirin version), Huawei Mate 40
+        else if (/Mali-G78/i.test(model))
+            return { tier: 'GOOD', reason: 'Decent Mali GPU' };
+
         // e.g. Google Pixel 7/Pixel Tablet (Mali-G710), Pixel 8/9 (Mali-G715)
         // various high-end Oppo/Xiaomi/Realme/Redmi/Vivo devices
         else if (/Mali-G7\d\d/i.test(model))
