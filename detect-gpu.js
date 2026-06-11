@@ -151,7 +151,7 @@ async function getGPUTier(undecided='BAD', printDebugInfo=false) {
 
     // NOTE: looks like ARM Immortalis GPUs are reported as Mali
     if (/Mali/i.test(model)) {
-        // e.g. Samsung Galaxy A15/A16/A06 5G
+        // e.g. Samsung Galaxy A54, A15/A16, A06/A07 5G, Redmi 13C 5G
         if (/(Mali-G57|Mali-G68)/i.test(model))
             return { tier: 'GOOD', reason: 'Decent Mali GPU' };
 
